@@ -1,5 +1,4 @@
-import { FiGithub, FiMail } from 'react-icons/fi'
-import { SiItchdotio } from 'react-icons/si'
+import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -30,13 +29,13 @@ export default function Footer() {
             <FiGithub />
           </a>
           <a
-            href="https://itch.io/search?q=secnero"
+            href="https://www.linkedin.com/in/vincent-andrew-escobar-549888263"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/60 hover:text-white text-xl sm:text-2xl transition-colors"
-            aria-label="Itch.io"
+            aria-label="LinkedIn"
           >
-            <SiItchdotio />
+            <FiLinkedin />
           </a>
           <a
             href="mailto:andrew.vincent3035@gmail.com"

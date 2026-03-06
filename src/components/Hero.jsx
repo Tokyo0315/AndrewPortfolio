@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiMail, FiGithub } from 'react-icons/fi'
-import { SiItchdotio } from 'react-icons/si'
+import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi'
 import gradPic from '../assets/imgs/grad-pic.jpg'
 
 export default function Hero() {
@@ -45,13 +44,13 @@ export default function Hero() {
               <FiGithub />
             </a>
             <a
-              href="https://itch.io/search?q=secnero"
+              href="https://www.linkedin.com/in/vincent-andrew-escobar-549888263"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 sm:w-[50px] sm:h-[50px] bg-[#c4c4c4] dark:bg-[#333] rounded-lg flex items-center justify-center text-black dark:text-white text-lg sm:text-xl hover:bg-[#aaa] dark:hover:bg-[#444] transition-colors shadow-md"
-              aria-label="Itch.io"
+              aria-label="LinkedIn"
             >
-              <SiItchdotio />
+              <FiLinkedin />
             </a>
           </div>
         </motion.div>
