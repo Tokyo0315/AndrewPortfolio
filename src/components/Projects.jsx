@@ -187,10 +187,10 @@ export default function Projects() {
                 <h3 className="font-raleway font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-2 sm:mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                   {project.subtitle}
                 </p>
-                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex gap-4 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.link}
                     target="_blank"
