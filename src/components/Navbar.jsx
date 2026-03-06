@@ -20,6 +20,16 @@ export default function Navbar({ isDark, toggleDark }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -28,13 +38,13 @@ export default function Navbar({ isDark, toggleDark }) {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-[1920px] mx-auto px-8 lg:px-16 py-3 flex items-center justify-between">
+      <nav className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-16 py-2 sm:py-3 flex items-center justify-between">
         <a href="#">
-          <img src={logo} alt="Logo" className="h-20 w-auto dark:invert" />
+          <img src={logo} alt="Logo" className="h-14 sm:h-16 lg:h-20 w-auto dark:invert" />
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop nav — visible at lg+ */}
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -72,21 +82,29 @@ export default function Navbar({ isDark, toggleDark }) {
           </a>
         </div>
 
-        {/* Mobile toggle + dark mode */}
-        <div className="md:hidden flex items-center gap-3 z-50">
+        {/* Mobile / Tablet controls — visible below lg */}
+        <div className="lg:hidden flex items-center gap-2 z-50">
           <button
             onClick={toggleDark}
             className={`p-2 rounded-full transition-colors cursor-pointer ${
-              scrolled
-                ? "text-black dark:text-white"
-                : "text-white"
+              menuOpen
+                ? "text-white"
+                : scrolled
+                  ? "text-black dark:text-white"
+                  : "text-white"
             }`}
             aria-label="Toggle dark mode"
           >
             {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
           </button>
           <button
-            className={`text-2xl ${scrolled ? "text-black dark:text-white" : "text-white"}`}
+            className={`p-2 text-2xl transition-colors cursor-pointer ${
+              menuOpen
+                ? "text-white"
+                : scrolled
+                  ? "text-black dark:text-white"
+                  : "text-white"
+            }`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,15 +112,15 @@ export default function Navbar({ isDark, toggleDark }) {
           </button>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile / Tablet menu overlay */}
         {menuOpen && (
-          <div className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden">
+          <div className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center gap-6 sm:gap-8 lg:hidden">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-white font-montserrat font-bold text-xl hover:opacity-70 transition-opacity"
+                className="text-white font-montserrat font-bold text-lg sm:text-xl hover:opacity-70 transition-opacity"
               >
                 {link.name}
               </a>
@@ -110,7 +128,7 @@ export default function Navbar({ isDark, toggleDark }) {
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="bg-white text-black font-montserrat font-bold text-lg px-8 py-3 rounded-full"
+              className="bg-white text-black font-montserrat font-bold text-base sm:text-lg px-8 py-3 rounded-full mt-2"
             >
               CONTACT ME
             </a>

@@ -121,31 +121,31 @@ export default function Projects() {
     <section id="projects" className="bg-white dark:bg-[#141414] transition-colors duration-300">
       {/* Header with background image */}
       <div
-        className="relative h-[250px] sm:h-[320px] bg-cover bg-center flex items-center justify-center"
+        className="relative h-[200px] sm:h-[280px] lg:h-[320px] bg-cover bg-center flex items-center justify-center"
         style={{ backgroundImage: `url(${bgsample})` }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <motion.div
-          className="relative z-10 border-2 border-white px-10 py-4"
+          className="relative z-10 border-2 border-white px-6 sm:px-10 py-3 sm:py-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-raleway font-bold text-[28px] sm:text-[36px] tracking-[0.15em] text-white text-center">
+          <h2 className="font-raleway font-bold text-2xl sm:text-[28px] lg:text-[36px] tracking-[0.15em] text-white text-center">
             PORTFOLIO
           </h2>
         </motion.div>
       </div>
 
       {/* Filter bar */}
-      <div className="max-w-4xl mx-auto px-6 pt-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
         <div className="flex justify-center gap-0 border-b border-gray-300 dark:border-[#333]">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`px-8 py-3 font-montserrat font-bold text-sm tracking-wider transition-all cursor-pointer ${
+              className={`px-5 sm:px-8 py-2.5 sm:py-3 font-montserrat font-bold text-xs sm:text-sm tracking-wider transition-all cursor-pointer ${
                 activeFilter === f
                   ? 'text-black dark:text-white border-b-2 border-black dark:border-white -mb-px'
                   : 'text-[#909090] hover:text-black dark:hover:text-white'
@@ -158,12 +158,12 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className="max-w-[1920px] mx-auto px-0 py-8">
+      <div className="max-w-[1920px] mx-auto px-0 py-6 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => (
             <motion.div
               key={project.title}
-              className="relative group h-[300px] sm:h-[400px] overflow-hidden"
+              className="relative group h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -178,14 +178,14 @@ export default function Projects() {
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black group-hover:scale-110 transition-transform duration-500" />
               )}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/70 transition-colors duration-300 flex flex-col items-center justify-center text-center px-6">
-                <p className="font-montserrat text-xs text-gray-300 tracking-wider mb-2">
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/70 transition-colors duration-300 flex flex-col items-center justify-center text-center px-4 sm:px-6">
+                <p className="font-montserrat text-[10px] sm:text-xs text-gray-300 tracking-wider mb-1 sm:mb-2">
                   {project.tags}
                 </p>
-                <h3 className="font-raleway font-bold text-2xl sm:text-3xl text-white mb-3">
+                <h3 className="font-raleway font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-2 sm:mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 text-sm max-w-[280px] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.subtitle}
                 </p>
                 <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -193,19 +193,19 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-white text-sm font-montserrat font-bold hover:text-gray-300 transition-colors"
+                    className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors"
                   >
-                    <span className="w-px h-6 bg-white mr-3" />
+                    <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
                     DEMO
-                    <span className="w-px h-6 bg-white ml-3" />
+                    <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
                   </a>
                   <button
                     onClick={() => setModalProject(project)}
-                    className="flex items-center text-white text-sm font-montserrat font-bold hover:text-gray-300 transition-colors cursor-pointer"
+                    className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors cursor-pointer"
                   >
-                    <span className="w-px h-6 bg-white mr-3" />
+                    <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
                     INFO
-                    <span className="w-px h-6 bg-white ml-3" />
+                    <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
                   </button>
                 </div>
               </div>
@@ -215,13 +215,13 @@ export default function Projects() {
       </div>
 
       {/* See more link */}
-      <div className="text-center pb-12">
+      <div className="text-center pb-8 sm:pb-12">
         {activeFilter === 'WEB' ? (
           <a
             href="https://github.com/Tokyo0315"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-montserrat font-bold text-sm text-[#909090] hover:text-black dark:hover:text-white transition-colors tracking-wider"
+            className="font-montserrat font-bold text-xs sm:text-sm text-[#909090] hover:text-black dark:hover:text-white transition-colors tracking-wider"
           >
             SEE ALL PROJECTS ON GITHUB &#8594;
           </a>
@@ -230,7 +230,7 @@ export default function Projects() {
             href="https://itch.io/search?q=secnero"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-montserrat font-bold text-sm text-[#909090] hover:text-black dark:hover:text-white transition-colors tracking-wider"
+            className="font-montserrat font-bold text-xs sm:text-sm text-[#909090] hover:text-black dark:hover:text-white transition-colors tracking-wider"
           >
             SEE ALL PROJECTS ON ITCH.IO &#8594;
           </a>
@@ -241,14 +241,14 @@ export default function Projects() {
       <AnimatePresence>
         {modalProject && (
           <motion.div
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setModalProject(null)}
           >
             <motion.div
-              className="bg-white dark:bg-[#1a1a1a] max-w-lg w-full overflow-hidden relative"
+              className="bg-white dark:bg-[#1a1a1a] max-w-lg w-full overflow-hidden relative max-h-[90vh] overflow-y-auto"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -257,7 +257,7 @@ export default function Projects() {
             >
               {/* Modal image */}
               {modalProject.image && (
-                <div className="w-full h-[200px] overflow-hidden">
+                <div className="w-full h-[160px] sm:h-[200px] overflow-hidden">
                   <img
                     src={modalProject.image}
                     alt={modalProject.title}
@@ -276,25 +276,25 @@ export default function Projects() {
               </button>
 
               {/* Modal content */}
-              <div className="p-8">
-                <p className="font-montserrat text-xs text-[#909090] tracking-wider mb-2">
+              <div className="p-5 sm:p-8">
+                <p className="font-montserrat text-[10px] sm:text-xs text-[#909090] tracking-wider mb-2">
                   {modalProject.tags}
                 </p>
-                <h3 className="font-raleway font-bold text-2xl text-black dark:text-white mb-4">
+                <h3 className="font-raleway font-bold text-xl sm:text-2xl text-black dark:text-white mb-3 sm:mb-4">
                   {modalProject.title}
                 </h3>
-                <p className="text-[#555] dark:text-[#a0a0a0] text-sm leading-relaxed mb-6">
+                <p className="text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                   {modalProject.info}
                 </p>
                 <a
                   href={modalProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center font-montserrat font-bold text-sm text-black dark:text-white hover:text-[#909090] transition-colors tracking-wider"
+                  className="inline-flex items-center font-montserrat font-bold text-xs sm:text-sm text-black dark:text-white hover:text-[#909090] transition-colors tracking-wider"
                 >
-                  <span className="w-px h-6 bg-black dark:bg-white mr-3" />
+                  <span className="w-px h-5 sm:h-6 bg-black dark:bg-white mr-2 sm:mr-3" />
                   VIEW PROJECT
-                  <span className="w-px h-6 bg-black dark:bg-white ml-3" />
+                  <span className="w-px h-5 sm:h-6 bg-black dark:bg-white ml-2 sm:ml-3" />
                 </a>
               </div>
             </motion.div>

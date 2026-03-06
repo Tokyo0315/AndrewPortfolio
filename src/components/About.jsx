@@ -23,9 +23,9 @@ const services = [
 
 function SectionHeading({ children }) {
   return (
-    <div className="flex justify-center mb-12">
-      <div className="border-2 border-black dark:border-white px-10 py-4">
-        <h2 className="font-raleway font-bold text-[28px] sm:text-[36px] tracking-[0.15em] text-black dark:text-white text-center">
+    <div className="flex justify-center mb-10 sm:mb-12">
+      <div className="border-2 border-black dark:border-white px-6 sm:px-10 py-3 sm:py-4">
+        <h2 className="font-raleway font-bold text-2xl sm:text-[28px] lg:text-[36px] tracking-[0.15em] text-black dark:text-white text-center">
           {children}
         </h2>
       </div>
@@ -35,15 +35,15 @@ function SectionHeading({ children }) {
 
 function Separator() {
   return (
-    <div className="flex justify-center my-12">
-      <div className="w-[170px] h-[6px] bg-black dark:bg-white rounded-full" />
+    <div className="flex justify-center my-8 sm:my-12">
+      <div className="w-[120px] sm:w-[170px] h-[5px] sm:h-[6px] bg-black dark:bg-white rounded-full" />
     </div>
   )
 }
 
 export default function About() {
   return (
-    <section id="about" className="bg-white dark:bg-[#141414] py-24 px-6 transition-colors duration-300">
+    <section id="about" className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,10 +61,10 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h3 className="font-raleway font-bold text-2xl text-black dark:text-white mb-4">
+          <h3 className="font-raleway font-bold text-xl sm:text-2xl text-black dark:text-white mb-4">
             Vincent Andrew Escobar
           </h3>
-          <p className="text-[#555] dark:text-[#a0a0a0] text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#555] dark:text-[#a0a0a0] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             I'm a passionate developer who enjoys building things for the web and
             creating interactive game experiences. I enjoy Web Development, Game Designing,
             Game Testing, and Digital Arts.
@@ -81,7 +81,7 @@ export default function About() {
         >
           <a href="#projects" className="group flex items-center">
             <span className="w-px h-8 bg-black dark:bg-white group-hover:bg-[#909090] transition-colors" />
-            <span className="px-5 font-montserrat font-bold text-sm tracking-wider text-black dark:text-white group-hover:text-[#909090] transition-colors">
+            <span className="px-4 sm:px-5 font-montserrat font-bold text-xs sm:text-sm tracking-wider text-black dark:text-white group-hover:text-[#909090] transition-colors">
               EXPLORE
             </span>
             <span className="w-px h-8 bg-black dark:bg-white group-hover:bg-[#909090] transition-colors" />
@@ -91,7 +91,7 @@ export default function About() {
         <Separator />
 
         {/* Services */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -101,8 +101,8 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h4 className="font-raleway font-bold text-lg tracking-wider text-black dark:text-white mb-3">
+              <div className="text-3xl sm:text-4xl mb-4">{service.icon}</div>
+              <h4 className="font-raleway font-bold text-base sm:text-lg tracking-wider text-black dark:text-white mb-3">
                 {service.title}
               </h4>
               <p className="text-[#666] dark:text-[#a0a0a0] text-sm leading-relaxed">
@@ -115,22 +115,22 @@ export default function About() {
         {/* Work Experience */}
         <Separator />
 
-        <div className="mt-8 space-y-8">
+        <div className="mt-8 space-y-6 sm:space-y-8">
           <motion.div
-            className="border-l-4 border-black dark:border-white pl-6"
+            className="border-l-4 border-black dark:border-white pl-4 sm:pl-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-3 mb-1">
-              <h4 className="font-raleway font-bold text-xl text-black dark:text-white">Systems and Software Consulting Group Inc.</h4>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">
+              <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">Systems and Software Consulting Group Inc.</h4>
               <span className="bg-black dark:bg-white text-white dark:text-black text-[10px] font-montserrat font-bold tracking-wider px-2.5 py-0.5 rounded-full uppercase">Current</span>
             </div>
-            <p className="font-montserrat text-sm text-[#909090] font-semibold mt-1 mb-3">
+            <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
               Software Developer &middot; November 2025 - Present
             </p>
-            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-sm">
+            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
               <li>&#9654; Develop and maintain responsive, high-performance websites and web applications.</li>
               <li>&#9654; Build scalable back-end solutions using ASP.NET Core and RESTful APIs.</li>
               <li>&#9654; Design and prototype software interfaces, ensuring intuitive user experience.</li>
@@ -139,17 +139,17 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            className="border-l-4 border-black dark:border-white pl-6"
+            className="border-l-4 border-black dark:border-white pl-4 sm:pl-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-raleway font-bold text-xl text-black dark:text-white">Ollopa Corporation</h4>
-            <p className="font-montserrat text-sm text-[#909090] font-semibold mt-1 mb-3">
+            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">Ollopa Corporation</h4>
+            <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
               IT and Multimedia Intern &middot; December 2024 - August 2025
             </p>
-            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-sm">
+            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
               <li>&#9654; Maintaining and Reporting the company website.</li>
               <li>&#9654; Hotel and Rooms listing in the company website.</li>
               <li>&#9654; Design Electronic Video Greeting Cards.</li>
@@ -157,17 +157,17 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            className="border-l-4 border-black dark:border-white pl-6"
+            className="border-l-4 border-black dark:border-white pl-4 sm:pl-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-raleway font-bold text-xl text-black dark:text-white">CREOTEC Philippines Inc.</h4>
-            <p className="font-montserrat text-sm text-[#909090] font-semibold mt-1 mb-3">
+            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">CREOTEC Philippines Inc.</h4>
+            <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
               Work Immersion &middot; April 2021
             </p>
-            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-sm">
+            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
               <li>&#9654; Designing, developing and maintaining mobile applications.</li>
               <li>&#9654; Troubleshooting and debugging issues.</li>
               <li>&#9654; Ensuring optimal app performance and user experience.</li>
