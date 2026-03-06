@@ -8,6 +8,8 @@ import bangugot from '../assets/imgs/bangugot.png'
 import rebellion from '../assets/imgs/rebellion.png'
 import bgsample from '../assets/imgs/bgsample.jpg'
 import bgsample2 from '../assets/imgs/bgsample2.jpg'
+import notLogo from '../assets/imgs/not-logo.png'
+import starship from '../assets/imgs/starship.png'
 import web1 from '../assets/imgs/web1.png'
 import web2 from '../assets/imgs/web2.png'
 import web3 from '../assets/imgs/web3.png'
@@ -80,7 +82,7 @@ const projects = [
     title: 'Not In My Backyard',
     subtitle: '3D top-down shooter — survive waves of spiders.',
     tags: 'Unity, Shooter',
-    image: bgsample,
+    image: notLogo,
     link: 'https://secnero-games.itch.io/not-in-my-backyard',
     category: 'game',
     info: 'Not In My Backyard is a 3D top-down shooter where spiders keep coming at you in waves. Your job is to survive as long as possible by shooting them down before they overwhelm you. Simple concept, addictive gameplay. Built in Unity with a top-down camera perspective.',
@@ -89,7 +91,7 @@ const projects = [
     title: 'Starship Invader',
     subtitle: "Shoot-'em-up — invade a planet with an overwhelming spaceship.",
     tags: 'Unity, 2D',
-    image: bgsample2,
+    image: starship,
     link: 'https://secnero-games.itch.io/starship-invader',
     category: 'game',
     info: "Starship Invader is a classic shoot-'em-up game where you pilot a powerful spaceship and blast through waves of enemies. It has that retro arcade feel with modern visuals. Dodge bullets, collect power-ups, and rack up your score. Made with Unity in 2D.",
