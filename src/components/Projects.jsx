@@ -103,6 +103,7 @@ const filters = ['ALL', 'GAMES', 'WEB']
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('ALL')
   const [modalProject, setModalProject] = useState(null)
+  const [tappedCard, setTappedCard] = useState(null)
 
   useEffect(() => {
     if (modalProject) {
@@ -162,57 +163,62 @@ export default function Projects() {
       {/* Projects grid */}
       <div className="max-w-[1920px] mx-auto px-0 py-6 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project, i) => (
-            <motion.div
-              key={project.title}
-              className="relative group h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black group-hover:scale-110 transition-transform duration-500" />
-              )}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/70 transition-colors duration-300 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-                <p className="font-montserrat text-[10px] sm:text-xs text-gray-300 tracking-wider mb-1 sm:mb-2">
-                  {project.tags}
-                </p>
-                <h3 className="font-raleway font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-2 sm:mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
-                  {project.subtitle}
-                </p>
-                <div className="flex gap-4 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors"
-                  >
-                    <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
-                    DEMO
-                    <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
-                  </a>
-                  <button
-                    onClick={() => setModalProject(project)}
-                    className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors cursor-pointer"
-                  >
-                    <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
-                    INFO
-                    <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
-                  </button>
+          {filtered.map((project, i) => {
+            const isActive = tappedCard === project.title
+            return (
+              <motion.div
+                key={project.title}
+                className="relative group h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden cursor-pointer"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                onClick={() => setTappedCard(isActive ? null : project.title)}
+              >
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-110 ${isActive ? "scale-110" : ""}`}
+                  />
+                ) : (
+                  <div className={`w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black transition-transform duration-500 lg:group-hover:scale-110 ${isActive ? "scale-110" : ""}`} />
+                )}
+                <div className={`absolute inset-0 transition-colors duration-300 flex flex-col items-center justify-center text-center px-4 sm:px-6 ${isActive ? "bg-black/70" : "bg-black/50"} lg:group-hover:bg-black/70`}>
+                  <p className="font-montserrat text-[10px] sm:text-xs text-gray-300 tracking-wider mb-1 sm:mb-2">
+                    {project.tags}
+                  </p>
+                  <h3 className="font-raleway font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-2 sm:mb-3">
+                    {project.title}
+                  </h3>
+                  <p className={`text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}>
+                    {project.subtitle}
+                  </p>
+                  <div className={`flex gap-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors"
+                    >
+                      <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
+                      DEMO
+                      <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
+                    </a>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setModalProject(project) }}
+                      className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors cursor-pointer"
+                    >
+                      <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
+                      INFO
+                      <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
 
