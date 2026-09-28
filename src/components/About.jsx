@@ -82,9 +82,12 @@ export default function About() {
             Vincent Andrew Escobar
           </h3>
           <p className="text-[#555] dark:text-[#a0a0a0] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            I'm a passionate developer who enjoys building things for the web
-            and creating interactive game experiences. I enjoy Web Development,
-            Game Designing, Game Testing, and Digital Arts.
+            I'm a Software Quality Assurance professional with a background in
+            web development and a strong interest in building reliable,
+            user-friendly digital experiences. I enjoy Manual Testing, Test
+            Automation, Web Development, Game Testing, and Digital Arts, with a
+            focus on identifying issues, improving software quality, and
+            ensuring smooth user experiences.
           </p>
         </motion.div>
 
