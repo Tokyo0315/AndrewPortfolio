@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi'
-import gradPic from '../assets/imgs/grad-pic.jpg'
+import { motion } from "framer-motion";
+import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+import creativePic from "../../../imgs/creative-pic.png";
 
 export default function Hero() {
   return (
@@ -22,7 +22,7 @@ export default function Hero() {
             Andrew
           </h1>
           <p className="font-raleway font-extrabold text-base sm:text-lg lg:text-[22px] text-[#909090] dark:text-[#a0a0a0] mb-8 sm:mb-12">
-            Web Developer / Game Designer
+            Software Quality Assurance Engineer
           </p>
 
           {/* Social icons */}
@@ -57,20 +57,20 @@ export default function Hero() {
       </div>
 
       {/* Right side - Black with photo */}
-      <div className="flex-1 bg-black relative overflow-hidden flex items-center justify-center min-h-[350px] sm:min-h-[450px] lg:min-h-screen">
+      <div className="flex-1 bg-black relative overflow-hidden min-h-[350px] sm:min-h-[450px] lg:min-h-screen">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative w-full h-full flex items-end justify-center"
+          className="absolute inset-0"
         >
           <img
-            src={gradPic}
+            src={creativePic}
             alt="Vincent Andrew Escobar"
-            className="w-auto h-[75%] sm:h-[80%] max-h-[500px] lg:max-h-[700px] object-cover object-top"
+            className="w-full h-full object-cover object-[center_28%]"
           />
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

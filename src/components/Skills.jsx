@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -6,7 +6,9 @@ import {
   FaBootstrap,
   FaUnity,
   FaReact,
-} from 'react-icons/fa'
+  FaPlay,
+  FaCheckCircle,
+} from "react-icons/fa";
 import {
   SiBlender,
   SiUnrealengine,
@@ -14,41 +16,48 @@ import {
   SiTailwindcss,
   SiAngular,
   SiDotnet,
-} from 'react-icons/si'
+  SiSelenium,
+} from "react-icons/si";
 
 const skillCategories = [
   {
-    label: 'WEB DEVELOPMENT:',
+    label: "WEB DEVELOPMENT:",
     skills: [
-      { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26' },
-      { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6' },
-      { name: 'JAVASCRIPT', icon: <FaJsSquare />, color: '#F7DF1E' },
-      { name: 'BOOTSTRAP', icon: <FaBootstrap />, color: '#7952B3' },
-      { name: 'REACT', icon: <FaReact />, color: '#61DAFB' },
-      { name: 'TAILWIND', icon: <SiTailwindcss />, color: '#06B6D4' },
+      { name: "HTML5", icon: <FaHtml5 />, color: "#E34F26" },
+      { name: "CSS3", icon: <FaCss3Alt />, color: "#1572B6" },
+      { name: "JAVASCRIPT", icon: <FaJsSquare />, color: "#F7DF1E" },
+      { name: "BOOTSTRAP", icon: <FaBootstrap />, color: "#7952B3" },
+      { name: "REACT", icon: <FaReact />, color: "#61DAFB" },
+      { name: "TAILWIND", icon: <SiTailwindcss />, color: "#06B6D4" },
+      { name: "ANGULAR", icon: <SiAngular />, color: "#DD0031" },
+      { name: "ASP.NET CORE", icon: <SiDotnet />, color: "#512BD4" },
     ],
   },
   {
-    label: 'GAME DEVELOPMENT:',
+    label: "GAME DEVELOPMENT:",
     skills: [
-      { name: 'UNITY', icon: <FaUnity />, color: '#222C37' },
-      { name: 'UNREAL ENGINE', icon: <SiUnrealengine />, color: '#0E1128' },
-      { name: 'BLENDER', icon: <SiBlender />, color: '#F5792A' },
-      { name: 'MAYA', icon: <SiAutodesk />, color: '#0696D7' },
+      { name: "UNITY", icon: <FaUnity />, color: "#222C37" },
+      { name: "UNREAL ENGINE", icon: <SiUnrealengine />, color: "#0E1128" },
+      { name: "BLENDER", icon: <SiBlender />, color: "#F5792A" },
+      { name: "MAYA", icon: <SiAutodesk />, color: "#0696D7" },
     ],
   },
   {
-    label: 'LEARNING:',
+    label: "AUTOMATION:",
     skills: [
-      { name: 'ANGULAR', icon: <SiAngular />, color: '#DD0031' },
-      { name: 'ASP.NET CORE', icon: <SiDotnet />, color: '#512BD4' },
+      { name: "SELENIUM", icon: <SiSelenium />, color: "#43B02A" },
+      { name: "PLAYWRIGHT", icon: <FaPlay />, color: "#2EAD33" },
+      { name: "KATALON", icon: <FaCheckCircle />, color: "#00A3E0" },
     ],
   },
-]
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-white dark:bg-[#1a1a1a] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section
+      id="skills"
+      className="bg-[#f5f5f5] dark:bg-[#1a1a1a] border-y border-gray-200 dark:border-[#242424] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300"
+    >
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="flex justify-center mb-12 sm:mb-16"
@@ -78,7 +87,10 @@ export default function Skills() {
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6">
               {category.skills.map((skill) => (
-                <div key={skill.name} className="flex flex-col items-center gap-2 sm:gap-3 group">
+                <div
+                  key={skill.name}
+                  className="flex flex-col items-center gap-2 sm:gap-3 group"
+                >
                   <div
                     className="w-[60px] h-[60px] sm:w-[75px] sm:h-[75px] lg:w-[85px] lg:h-[85px] rounded-xl sm:rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl lg:text-4xl shadow-md group-hover:scale-110 transition-transform duration-300"
                     style={{ backgroundColor: skill.color }}
@@ -95,5 +107,5 @@ export default function Skills() {
         ))}
       </div>
     </section>
-  )
+  );
 }

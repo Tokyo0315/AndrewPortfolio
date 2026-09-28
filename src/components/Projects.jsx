@@ -6,7 +6,6 @@ import neroDodge from '../assets/imgs/Nero Dodge.jpg'
 import projectRacer from '../assets/imgs/project-racer.png'
 import bangugot from '../assets/imgs/bangugot.png'
 import rebellion from '../assets/imgs/rebellion.png'
-import bgsample from '../assets/imgs/bgsample.jpg'
 import bgsample2 from '../assets/imgs/bgsample2.jpg'
 import notLogo from '../assets/imgs/not-logo.png'
 import starship from '../assets/imgs/starship.png'
@@ -121,28 +120,26 @@ export default function Projects() {
       : projects.filter((p) => p.category === filterMap[activeFilter])
 
   return (
-    <section id="projects" className="bg-white dark:bg-[#141414] transition-colors duration-300">
-      {/* Header with background image */}
+    <section id="projects" className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 transition-colors duration-300">
+      {/* Header */}
       <div
-        className="relative h-[200px] sm:h-[280px] lg:h-[320px] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${bgsample})` }}
+        className="relative flex items-center justify-center mb-12 sm:mb-16"
       >
-        <div className="absolute inset-0 bg-black/40" />
         <motion.div
-          className="relative z-10 border-2 border-white px-6 sm:px-10 py-3 sm:py-4"
+          className="relative z-10 border-2 border-black dark:border-white px-6 sm:px-10 py-3 sm:py-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-raleway font-bold text-2xl sm:text-[28px] lg:text-[36px] tracking-[0.15em] text-white text-center">
+          <h2 className="font-raleway font-bold text-2xl sm:text-[28px] lg:text-[36px] tracking-[0.15em] text-black dark:text-white text-center">
             PORTFOLIO
           </h2>
         </motion.div>
       </div>
 
       {/* Filter bar */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="flex justify-center gap-0 border-b border-gray-300 dark:border-[#333]">
           {filters.map((f) => (
             <button
@@ -161,7 +158,7 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className="max-w-[1920px] mx-auto px-0 py-6 sm:py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => {
             const isActive = tappedCard === project.title

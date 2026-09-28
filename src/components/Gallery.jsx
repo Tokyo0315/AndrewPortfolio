@@ -1,37 +1,40 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
-import art1 from '../assets/imgs/art1.JPG'
-import art2 from '../assets/imgs/art2.jpg'
-import grp1 from '../assets/imgs/grp1.JPG'
-import award1 from '../assets/imgs/award1.jpeg'
-import award2 from '../assets/imgs/award2.jpeg'
-import art from '../assets/imgs/art.jfif'
+import cert3 from "../assets/imgs/cert3.png";
+import cert4 from "../assets/imgs/cert4.png";
+import cert1 from "../assets/imgs/cert1.jfif";
+import award1 from "../assets/imgs/award1.jpeg";
+import award2 from "../assets/imgs/award2.jpeg";
+import cert2 from "../assets/imgs/cert2.jfif";
 
 const images = [
-  { src: art, alt: 'Artwork' },
-  { src: art1, alt: 'Artwork 1' },
-  { src: art2, alt: 'Artwork 2' },
-  { src: grp1, alt: 'Group Photo' },
-  { src: award1, alt: 'Award 1' },
-  { src: award2, alt: 'Award 2' },
-]
+  { src: cert3, alt: "Cert 3" },
+  { src: cert4, alt: "Cert 4" },
+  { src: cert2, alt: "Cert 2" },
+  { src: cert1, alt: "Cert 1" },
+  { src: award1, alt: "Award 1" },
+  { src: award2, alt: "Award 2" },
+];
 
 export default function Gallery() {
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(null);
 
   const navigate = (dir) => {
     setSelected((prev) => {
-      const next = prev + dir
-      if (next < 0) return images.length - 1
-      if (next >= images.length) return 0
-      return next
-    })
-  }
+      const next = prev + dir;
+      if (next < 0) return images.length - 1;
+      if (next >= images.length) return 0;
+      return next;
+    });
+  };
 
   return (
-    <section id="gallery" className="bg-[#f5f5f5] dark:bg-[#1a1a1a] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section
+      id="gallery"
+      className="bg-[#f5f5f5] dark:bg-[#1a1a1a] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300"
+    >
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="flex justify-center mb-12 sm:mb-16"
@@ -84,14 +87,20 @@ export default function Gallery() {
               onClick={() => setSelected(null)}
             >
               <button
-                onClick={(e) => { e.stopPropagation(); setSelected(null) }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelected(null);
+                }}
                 className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white text-2xl transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <FiX />
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); navigate(-1) }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(-1);
+                }}
                 className="absolute left-2 sm:left-4 md:left-8 text-white/70 hover:text-white text-2xl sm:text-3xl transition-colors cursor-pointer"
                 aria-label="Previous"
               >
@@ -108,7 +117,10 @@ export default function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               />
               <button
-                onClick={(e) => { e.stopPropagation(); navigate(1) }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(1);
+                }}
                 className="absolute right-2 sm:right-4 md:right-8 text-white/70 hover:text-white text-2xl sm:text-3xl transition-colors cursor-pointer"
                 aria-label="Next"
               >
@@ -122,5 +134,5 @@ export default function Gallery() {
         </AnimatePresence>
       </div>
     </section>
-  )
+  );
 }

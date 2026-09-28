@@ -1,25 +1,39 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import internetIcon from "../../../imgs/internet.svg";
+import consoleIcon from "../../../imgs/console.svg";
+import paletteIcon from "../../../imgs/palette.svg";
+import HQIcon from "../../../imgs/high-quality.svg";
 
 const services = [
   {
-    title: 'WEB DEVELOPMENT',
+    title: "WEB DEVELOPMENT",
     description:
-      'I can develop responsive and functional websites based on your needs, from simple landing pages to complex web applications.',
-    icon: '💻',
+      "I can develop responsive and functional websites based on your needs, from simple landing pages to complex web applications.",
+    icon: internetIcon,
+    iconType: "image",
   },
   {
-    title: 'GAME DESIGN',
+    title: "GAME DESIGN",
     description:
-      'I design and develop interactive game experiences using Unity and Unreal Engine, from 2D platformers to 3D adventures.',
-    icon: '🎮',
+      "I design and develop interactive game experiences using Unity and Unreal Engine, from 2D platformers to 3D adventures.",
+    icon: consoleIcon,
+    iconType: "image",
   },
   {
-    title: 'DIGITAL ARTS',
+    title: "DIGITAL ARTS",
     description:
-      'I create digital artworks and multimedia content including video greeting cards, graphics, and visual designs.',
-    icon: '🎨',
+      "I create digital artworks and multimedia content including video greeting cards, graphics, and visual designs.",
+    icon: paletteIcon,
+    iconType: "image",
   },
-]
+  {
+    title: "QUALITY ASSURANCE",
+    description:
+      "I perform manual and automation testing to ensure software quality, identify bugs, validate features, create and execute test cases, and provide detailed defect reports and test results.",
+    icon: HQIcon,
+    iconType: "image",
+  },
+];
 
 function SectionHeading({ children }) {
   return (
@@ -30,7 +44,7 @@ function SectionHeading({ children }) {
         </h2>
       </div>
     </div>
-  )
+  );
 }
 
 function Separator() {
@@ -38,12 +52,15 @@ function Separator() {
     <div className="flex justify-center my-8 sm:my-12">
       <div className="w-[120px] sm:w-[170px] h-[5px] sm:h-[6px] bg-black dark:bg-white rounded-full" />
     </div>
-  )
+  );
 }
 
 export default function About() {
   return (
-    <section id="about" className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section
+      id="about"
+      className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 transition-colors duration-300"
+    >
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,9 +82,9 @@ export default function About() {
             Vincent Andrew Escobar
           </h3>
           <p className="text-[#555] dark:text-[#a0a0a0] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            I'm a passionate developer who enjoys building things for the web and
-            creating interactive game experiences. I enjoy Web Development, Game Designing,
-            Game Testing, and Digital Arts.
+            I'm a passionate developer who enjoys building things for the web
+            and creating interactive game experiences. I enjoy Web Development,
+            Game Designing, Game Testing, and Digital Arts.
           </p>
         </motion.div>
 
@@ -91,7 +108,7 @@ export default function About() {
         <Separator />
 
         {/* Services */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -101,8 +118,18 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <div className="text-3xl sm:text-4xl mb-4">{service.icon}</div>
-              <h4 className="font-raleway font-bold text-base sm:text-lg tracking-wider text-black dark:text-white mb-3">
+              <div className="h-12 flex items-center justify-center mb-4">
+                {service.iconType === "image" ? (
+                  <img
+                    src={service.icon}
+                    alt=""
+                    className="max-w-12 max-h-12 dark:invert"
+                  />
+                ) : (
+                  <div className="text-3xl sm:text-4xl">{service.icon}</div>
+                )}
+              </div>
+              <h4 className="min-h-[56px] flex items-center justify-center font-raleway font-bold text-base sm:text-lg tracking-wider text-black dark:text-white mb-3">
                 {service.title}
               </h4>
               <p className="text-[#666] dark:text-[#a0a0a0] text-sm leading-relaxed">
@@ -124,17 +151,71 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">
-              <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">Systems and Software Consulting Group Inc.</h4>
-              <span className="bg-black dark:bg-white text-white dark:text-black text-[10px] font-montserrat font-bold tracking-wider px-2.5 py-0.5 rounded-full uppercase">Current</span>
+              <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">
+                Qstrike Innovations Phils., OPC
+              </h4>
+              <span className="bg-black dark:bg-white text-white dark:text-black text-[10px] font-montserrat font-bold tracking-wider px-2.5 py-0.5 rounded-full uppercase">
+                Current
+              </span>
             </div>
             <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
-              Software Developer &middot; November 2025 - Present
+              Software Quality Assurance Engineer &middot; July 2026 - Present
             </p>
             <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
-              <li>&#9654; Develop and maintain responsive, high-performance websites and web applications.</li>
-              <li>&#9654; Build scalable back-end solutions using ASP.NET Core and RESTful APIs.</li>
-              <li>&#9654; Design and prototype software interfaces, ensuring intuitive user experience.</li>
-              <li>&#9654; Collaborate with cross-functional teams to deliver client-facing software products.</li>
+              <li>
+                &#9654; Executed QA activities aligned with Product Test
+                Strategy, ensuring comprehensive test coverage using modern
+                tools and methodologies
+              </li>
+              <li>
+                &#9654; Performed functional, regression, integration, and
+                end-to-end testing across product releases.
+              </li>
+              <li>
+                &#9654; Collaborated cross-functionally with development teams
+                throughout the SDLC to deliver high-quality,
+                business-value-driven solutions.
+              </li>
+              <li>
+                &#9654; Wrote and maintained test cases, identified defects, and
+                drove issue resolution through strong analytical and
+                problem-solving skills
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="border-l-4 border-black dark:border-white pl-4 sm:pl-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">
+              <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">
+                Systems and Software Consulting Group Inc.
+              </h4>
+            </div>
+            <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
+              Software Developer &middot; November 2025 - April 2025 (6 Months)
+            </p>
+            <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
+              <li>
+                &#9654; Develop and maintain responsive, high-performance
+                websites and web applications.
+              </li>
+              <li>
+                &#9654; Build scalable back-end solutions using ASP.NET Core and
+                RESTful APIs.
+              </li>
+              <li>
+                &#9654; Design and prototype software interfaces, ensuring
+                intuitive user experience.
+              </li>
+              <li>
+                &#9654; Collaborate with cross-functional teams to deliver
+                client-facing software products.
+              </li>
             </ul>
           </motion.div>
 
@@ -145,9 +226,12 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">Ollopa Corporation</h4>
+            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">
+              Ollopa Corporation
+            </h4>
             <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
-              IT and Multimedia Intern &middot; December 2024 - August 2025
+              IT and Multimedia Intern &middot; December 2024 - August 2025 (9
+              Months)
             </p>
             <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
               <li>&#9654; Maintaining and Reporting the company website.</li>
@@ -163,18 +247,25 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">CREOTEC Philippines Inc.</h4>
+            <h4 className="font-raleway font-bold text-lg sm:text-xl text-black dark:text-white">
+              CREOTEC Philippines Inc.
+            </h4>
             <p className="font-montserrat text-xs sm:text-sm text-[#909090] font-semibold mt-1 mb-3">
-              Work Immersion &middot; April 2021
+              Work Immersion &middot; April 2021 (2 Weeks)
             </p>
             <ul className="space-y-1.5 text-[#555] dark:text-[#a0a0a0] text-xs sm:text-sm">
-              <li>&#9654; Designing, developing and maintaining mobile applications.</li>
+              <li>
+                &#9654; Designing, developing and maintaining mobile
+                applications.
+              </li>
               <li>&#9654; Troubleshooting and debugging issues.</li>
-              <li>&#9654; Ensuring optimal app performance and user experience.</li>
+              <li>
+                &#9654; Ensuring optimal app performance and user experience.
+              </li>
             </ul>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
