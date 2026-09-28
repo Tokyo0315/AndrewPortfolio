@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Right side - Black with photo */}
-      <div className="flex-1 bg-black relative overflow-hidden min-h-[350px] sm:min-h-[450px] lg:min-h-screen">
+      <div className="flex-1 bg-black relative overflow-hidden min-h-[420px] sm:min-h-[540px] lg:min-h-screen">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -67,7 +67,7 @@ export default function Hero() {
           <img
             src={creativePic}
             alt="Vincent Andrew Escobar"
-            className="w-full h-full object-cover object-[center_28%]"
+            className="w-full h-full object-cover object-[center_18%] sm:object-[center_22%] lg:object-[center_28%]"
           />
         </motion.div>
       </div>
