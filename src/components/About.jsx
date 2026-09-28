@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import internetIcon from "../../../imgs/internet.svg";
-import consoleIcon from "../../../imgs/console.svg";
-import paletteIcon from "../../../imgs/palette.svg";
-import HQIcon from "../../../imgs/high-quality.svg";
+import internetIcon from "../assets/imgs/internet.svg";
+import consoleIcon from "../assets/imgs/console.svg";
+import paletteIcon from "../assets/imgs/palette.svg";
+import HQIcon from "../assets/imgs/high-quality.svg";
 
 const services = [
   {

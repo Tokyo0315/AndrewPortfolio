@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
-import creativePic from "../../../imgs/creative-pic.png";
+import creativePic from "../assets/imgs/creative-pic.png";
 
 export default function Hero() {
   return (
