@@ -1,130 +1,135 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FiX } from 'react-icons/fi'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiX } from "react-icons/fi";
 
-import neroDodge from '../assets/imgs/Nero Dodge.jpg'
-import projectRacer from '../assets/imgs/project-racer.png'
-import bangugot from '../assets/imgs/bangugot.png'
-import rebellion from '../assets/imgs/rebellion.png'
-import bgsample2 from '../assets/imgs/bgsample2.jpg'
-import notLogo from '../assets/imgs/not-logo.png'
-import starship from '../assets/imgs/starship.png'
-import web1 from '../assets/imgs/web1.png'
-import web2 from '../assets/imgs/web2.png'
-import web3 from '../assets/imgs/web3.png'
+import neroDodge from "../assets/imgs/Nero Dodge.jpg";
+import projectRacer from "../assets/imgs/project-racer.png";
+import bangugot from "../assets/imgs/bangugot.png";
+import rebellion from "../assets/imgs/rebellion.png";
+import bgsample2 from "../assets/imgs/bgsample2.jpg";
+import notLogo from "../assets/imgs/not-logo.png";
+import starship from "../assets/imgs/starship.png";
+import web1 from "../assets/imgs/web1.png";
+import web2 from "../assets/imgs/web2.png";
+import web3 from "../assets/imgs/web3.png";
 
 const projects = [
   {
-    title: 'PokeCircuit Arena',
-    subtitle: 'A Pokemon-inspired web application with circuit-themed battles and interactive gameplay.',
-    tags: 'React, Web App',
+    title: "PokeCircuit Arena",
+    subtitle:
+      "A Pokemon-inspired web application with circuit-themed battles and interactive gameplay.",
+    tags: "React, Web App",
     image: web1,
-    link: 'https://poke-circuit.vercel.app/',
-    category: 'web',
-    info: 'PokeCircuit Arena is a fun web app inspired by Pokemon. You can pick your favorite creatures and battle them in a circuit-style arena. It features team building, turn-based battles, and a clean interface that makes it easy to jump in and play. Built with React and deployed on Vercel.',
+    link: "https://poke-circuit.vercel.app/",
+    category: "web",
+    info: "PokeCircuit Arena is a fun web app inspired by Pokemon. You can pick your favorite creatures and battle them in a circuit-style arena. It features team building, turn-based battles, and a clean interface that makes it easy to jump in and play. Built with React and deployed on Vercel.",
   },
   {
-    title: 'Cedrik User Manual',
-    subtitle: 'A web-based user manual and documentation site.',
-    tags: 'React, Web App',
+    title: "Cedrik User Manual",
+    subtitle: "A web-based user manual and documentation site.",
+    tags: "React, Web App",
     image: web2,
-    link: 'https://cedrik-user-manual-webite.vercel.app/',
-    category: 'web',
-    info: 'Cedrik User Manual is a clean documentation website designed to guide users through a product step by step. It has organized sections, easy navigation, and a simple layout so anyone can find the info they need without getting lost. Built with React and hosted on Vercel.',
+    link: "https://cedrik-user-manual-webite.vercel.app/",
+    category: "web",
+    info: "Cedrik User Manual is a clean documentation website designed to guide users through a product step by step. It has organized sections, easy navigation, and a simple layout so anyone can find the info they need without getting lost. Built with React and hosted on Vercel.",
   },
   {
-    title: 'Thodemy Learning Management System',
-    subtitle: 'A learning management system for online courses and education.',
-    tags: 'React, Web App',
+    title: "Thodemy Learning Management System",
+    subtitle: "A learning management system for online courses and education.",
+    tags: "React, Web App",
     image: web3,
-    link: 'https://thodemy.vercel.app/',
-    category: 'web',
-    info: 'Thodemy is a learning management system where users can browse and take online courses. It has a structured course catalog, lesson pages, and a user-friendly design that keeps the learning experience smooth and straightforward. Built with React and deployed on Vercel.',
+    link: "https://thodemy-3z94.vercel.app/",
+    category: "web",
+    info: "Thodemy is a learning management system where users can browse and take online courses. It has a structured course catalog, lesson pages, and a user-friendly design that keeps the learning experience smooth and straightforward. Built with React and deployed on Vercel.",
   },
   {
-    title: 'Nero Dodge',
-    subtitle: '2D side scroller game where you control Nero to dodge demons.',
-    tags: 'Unity, C#',
+    title: "Nero Dodge",
+    subtitle: "2D side scroller game where you control Nero to dodge demons.",
+    tags: "Unity, C#",
     image: neroDodge,
-    link: 'https://secnero-games.itch.io/nero-dodge',
-    category: 'game',
-    info: 'Nero Dodge is a fast-paced 2D side scroller where you play as Nero and try to survive as long as you can by dodging waves of demons. The longer you last, the harder it gets. Simple controls, quick rounds, and a lot of fun. Made with Unity and C#.',
+    link: "https://secnero-games.itch.io/nero-dodge",
+    category: "game",
+    info: "Nero Dodge is a fast-paced 2D side scroller where you play as Nero and try to survive as long as you can by dodging waves of demons. The longer you last, the harder it gets. Simple controls, quick rounds, and a lot of fun. Made with Unity and C#.",
   },
   {
-    title: 'Project Racer',
-    subtitle: '3D low-poly racing game for skill-focused racing experience.',
-    tags: 'Unity, 3D',
+    title: "Project Racer",
+    subtitle: "3D low-poly racing game for skill-focused racing experience.",
+    tags: "Unity, 3D",
     image: projectRacer,
-    link: 'https://secnero-games.itch.io/project-racer',
-    category: 'game',
-    info: 'Project Racer is a 3D racing game with a low-poly art style. It focuses on skill-based driving where you have to master tight turns and tricky tracks to get the best time. No power-ups, just pure racing. Built in Unity with custom 3D assets.',
+    link: "https://secnero-games.itch.io/project-racer",
+    category: "game",
+    info: "Project Racer is a 3D racing game with a low-poly art style. It focuses on skill-based driving where you have to master tight turns and tricky tracks to get the best time. No power-ups, just pure racing. Built in Unity with custom 3D assets.",
   },
   {
-    title: 'Bangungot',
-    subtitle: 'A short adventure horror game following Jake after a train crash.',
-    tags: 'Unity, Horror',
+    title: "Bangungot",
+    subtitle:
+      "A short adventure horror game following Jake after a train crash.",
+    tags: "Unity, Horror",
     image: bangugot,
-    link: 'https://secnero-games.itch.io/bangungot',
-    category: 'game',
-    info: 'Bangungot is a short horror adventure game. You play as Jake who wakes up after a train crash in a dark, unsettling place. Explore the environment, piece together what happened, and try to find your way out. It has a creepy atmosphere and a story that keeps you on edge. Made with Unity.',
+    link: "https://secnero-games.itch.io/bangungot",
+    category: "game",
+    info: "Bangungot is a short horror adventure game. You play as Jake who wakes up after a train crash in a dark, unsettling place. Explore the environment, piece together what happened, and try to find your way out. It has a creepy atmosphere and a story that keeps you on edge. Made with Unity.",
   },
   {
-    title: 'Rebellion',
-    subtitle: '2D platformer parkour game — escape as cyborg Yue from a lab.',
-    tags: 'Unity, Platformer',
+    title: "Rebellion",
+    subtitle: "2D platformer parkour game — escape as cyborg Yue from a lab.",
+    tags: "Unity, Platformer",
     image: rebellion,
-    link: 'https://secnero-games.itch.io/rebellion',
-    category: 'game',
-    info: 'Rebellion is a 2D platformer where you play as Yue, a cyborg escaping from a lab. Run, jump, and parkour your way through obstacles and enemies. The levels are designed to test your reflexes and timing. Fast-paced action built with Unity.',
+    link: "https://secnero-games.itch.io/rebellion",
+    category: "game",
+    info: "Rebellion is a 2D platformer where you play as Yue, a cyborg escaping from a lab. Run, jump, and parkour your way through obstacles and enemies. The levels are designed to test your reflexes and timing. Fast-paced action built with Unity.",
   },
   {
-    title: 'Not In My Backyard',
-    subtitle: '3D top-down shooter — survive waves of spiders.',
-    tags: 'Unity, Shooter',
+    title: "Not In My Backyard",
+    subtitle: "3D top-down shooter — survive waves of spiders.",
+    tags: "Unity, Shooter",
     image: notLogo,
-    link: 'https://secnero-games.itch.io/not-in-my-backyard',
-    category: 'game',
-    info: 'Not In My Backyard is a 3D top-down shooter where spiders keep coming at you in waves. Your job is to survive as long as possible by shooting them down before they overwhelm you. Simple concept, addictive gameplay. Built in Unity with a top-down camera perspective.',
+    link: "https://secnero-games.itch.io/not-in-my-backyard",
+    category: "game",
+    info: "Not In My Backyard is a 3D top-down shooter where spiders keep coming at you in waves. Your job is to survive as long as possible by shooting them down before they overwhelm you. Simple concept, addictive gameplay. Built in Unity with a top-down camera perspective.",
   },
   {
-    title: 'Starship Invader',
+    title: "Starship Invader",
     subtitle: "Shoot-'em-up — invade a planet with an overwhelming spaceship.",
-    tags: 'Unity, 2D',
+    tags: "Unity, 2D",
     image: starship,
-    link: 'https://secnero-games.itch.io/starship-invader',
-    category: 'game',
+    link: "https://secnero-games.itch.io/starship-invader",
+    category: "game",
     info: "Starship Invader is a classic shoot-'em-up game where you pilot a powerful spaceship and blast through waves of enemies. It has that retro arcade feel with modern visuals. Dodge bullets, collect power-ups, and rack up your score. Made with Unity in 2D.",
   },
-]
+];
 
-const filters = ['ALL', 'GAMES', 'WEB']
+const filters = ["ALL", "GAMES", "WEB"];
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('ALL')
-  const [modalProject, setModalProject] = useState(null)
-  const [tappedCard, setTappedCard] = useState(null)
+  const [activeFilter, setActiveFilter] = useState("ALL");
+  const [modalProject, setModalProject] = useState(null);
+  const [tappedCard, setTappedCard] = useState(null);
 
   useEffect(() => {
     if (modalProject) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ''
+      document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = '' }
-  }, [modalProject])
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [modalProject]);
 
-  const filterMap = { ALL: null, GAMES: 'game', WEB: 'web' }
+  const filterMap = { ALL: null, GAMES: "game", WEB: "web" };
   const filtered =
-    activeFilter === 'ALL'
+    activeFilter === "ALL"
       ? projects
-      : projects.filter((p) => p.category === filterMap[activeFilter])
+      : projects.filter((p) => p.category === filterMap[activeFilter]);
 
   return (
-    <section id="projects" className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 transition-colors duration-300">
+    <section
+      id="projects"
+      className="bg-white dark:bg-[#141414] py-16 sm:py-20 lg:py-24 transition-colors duration-300"
+    >
       {/* Header */}
-      <div
-        className="relative flex items-center justify-center mb-12 sm:mb-16"
-      >
+      <div className="relative flex items-center justify-center mb-12 sm:mb-16">
         <motion.div
           className="relative z-10 border-2 border-black dark:border-white px-6 sm:px-10 py-3 sm:py-4"
           initial={{ opacity: 0, y: 20 }}
@@ -147,8 +152,8 @@ export default function Projects() {
               onClick={() => setActiveFilter(f)}
               className={`px-5 sm:px-8 py-2.5 sm:py-3 font-montserrat font-bold text-xs sm:text-sm tracking-wider transition-all cursor-pointer ${
                 activeFilter === f
-                  ? 'text-black dark:text-white border-b-2 border-black dark:border-white -mb-px'
-                  : 'text-[#909090] hover:text-black dark:hover:text-white'
+                  ? "text-black dark:text-white border-b-2 border-black dark:border-white -mb-px"
+                  : "text-[#909090] hover:text-black dark:hover:text-white"
               }`}
             >
               {f}
@@ -161,7 +166,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project, i) => {
-            const isActive = tappedCard === project.title
+            const isActive = tappedCard === project.title;
             return (
               <motion.div
                 key={project.title}
@@ -179,19 +184,27 @@ export default function Projects() {
                     className={`w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-110 ${isActive ? "scale-110" : ""}`}
                   />
                 ) : (
-                  <div className={`w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black transition-transform duration-500 lg:group-hover:scale-110 ${isActive ? "scale-110" : ""}`} />
+                  <div
+                    className={`w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black transition-transform duration-500 lg:group-hover:scale-110 ${isActive ? "scale-110" : ""}`}
+                  />
                 )}
-                <div className={`absolute inset-0 transition-colors duration-300 flex flex-col items-center justify-center text-center px-4 sm:px-6 ${isActive ? "bg-black/70" : "bg-black/50"} lg:group-hover:bg-black/70`}>
+                <div
+                  className={`absolute inset-0 transition-colors duration-300 flex flex-col items-center justify-center text-center px-4 sm:px-6 ${isActive ? "bg-black/70" : "bg-black/50"} lg:group-hover:bg-black/70`}
+                >
                   <p className="font-montserrat text-[10px] sm:text-xs text-gray-300 tracking-wider mb-1 sm:mb-2">
                     {project.tags}
                   </p>
                   <h3 className="font-raleway font-bold text-xl sm:text-2xl lg:text-3xl text-white mb-2 sm:mb-3">
                     {project.title}
                   </h3>
-                  <p className={`text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}>
+                  <p
+                    className={`text-gray-300 text-xs sm:text-sm max-w-[280px] mb-3 sm:mb-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}
+                  >
                     {project.subtitle}
                   </p>
-                  <div className={`flex gap-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}>
+                  <div
+                    className={`flex gap-4 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"} lg:opacity-0 lg:group-hover:opacity-100`}
+                  >
                     <a
                       href={project.link}
                       target="_blank"
@@ -204,7 +217,10 @@ export default function Projects() {
                       <span className="w-px h-5 sm:h-6 bg-white ml-2 sm:ml-3" />
                     </a>
                     <button
-                      onClick={(e) => { e.stopPropagation(); setModalProject(project) }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setModalProject(project);
+                      }}
                       className="flex items-center text-white text-xs sm:text-sm font-montserrat font-bold hover:text-gray-300 transition-colors cursor-pointer"
                     >
                       <span className="w-px h-5 sm:h-6 bg-white mr-2 sm:mr-3" />
@@ -214,14 +230,14 @@ export default function Projects() {
                   </div>
                 </div>
               </motion.div>
-            )
+            );
           })}
         </div>
       </div>
 
       {/* See more link */}
       <div className="text-center pb-8 sm:pb-12">
-        {activeFilter === 'WEB' ? (
+        {activeFilter === "WEB" ? (
           <a
             href="https://github.com/Tokyo0315"
             target="_blank"
@@ -307,5 +323,5 @@ export default function Projects() {
         )}
       </AnimatePresence>
     </section>
-  )
+  );
 }
